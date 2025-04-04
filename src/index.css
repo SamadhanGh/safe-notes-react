@@ -10,11 +10,11 @@
 
 /* Custom Data Grid Table Row Styles */
 .MuiDataGrid-row:nth-of-type(odd) {
-  background-color: #eee6e6;
+  background-color: #474343;
 }
 
 .MuiDataGrid-row:nth-of-type(even) {
-  background-color: #ffffff;
+  background-color: #464444;
 }
 
 /* Additional custom styles can be added below */

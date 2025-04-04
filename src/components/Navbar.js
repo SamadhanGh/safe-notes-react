@@ -67,7 +67,12 @@ const Navbar = () => {
               </button>
             </>
           ) : (
-            <NavLink to="/signup" label="Sign Up" />
+            <Link
+              to="/signup"
+              className="w-24 text-center bg-gradient-to-r from-pink-700 to-pink-900 text-white font-semibold px-4 py-2 rounded-md cursor-pointer hover:from-pink-800 hover:to-pink-950 transition-all duration-200"
+            >
+              Sign Up
+            </Link>
           )}
         </ul>
 
