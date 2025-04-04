@@ -1,69 +1,42 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+
+const socialLinks = [
+  { icon: <FaFacebookF size={18} />, url: "https://facebook.com" },
+  { icon: <FaLinkedinIn size={18} />, url: "https://linkedin.com" },
+  { icon: <FaTwitter size={18} />, url: "https://twitter.com" },
+  { icon: <FaInstagram size={18} />, url: "https://instagram.com" },
+];
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
   return (
-    <footer className="bg-headerColor py-6 lg:py-2  min-h-28 z-50  relative">
-      <div className="xl:px-10 sm:px-6 px-4  min-h-28  flex lg:flex-row flex-col  lg:gap-0 gap-5  justify-between items-center ">
-        <ul className="flex flex-1  md:gap-6 gap-4   text-white flex-row items-center ">
-          <li>
-            <Link to="/about">
-              <span className="hover:underline">About Us</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <span className="hover:underline">Services</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact">
-              <span className="hover:underline">Contact</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <span className="hover:underline">Privacy Policy</span>
-            </Link>
-          </li>
+    <footer className="bg-gray-900 py-6 text-white border-t border-gray-700 shadow-inner">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center px-6">
+        
+        {/* Navigation Links */}
+        <ul className="flex flex-wrap gap-6 text-sm justify-center lg:justify-start">
+          {["About Us", "Services", "Contact", "Privacy Policy"].map((item, index) => (
+            <li key={index}>
+              <Link to={`/${item.toLowerCase().replace(/\s/g, "")}`} className="hover:text-gray-400">
+                {item}
+              </Link>
+            </li>
+          ))}
         </ul>
 
-        <p className="w-fit  flex items-center text-white text-sm">
-          <span>&copy;{currentYear} SafeNote | All rights reserved.</span>
+        {/* Copyright */}
+        <p className="text-gray-400 text-xs mt-4 lg:mt-0">
+          &copy; {new Date().getFullYear()} SafeNote | All rights reserved.
         </p>
 
-        <div className="flex-1  flex flex-row gap-6 lg:justify-end justify-start items-center">
-          <Link
-            className="text-white border h-10 w-10 flex justify-center items-center border-white rounded-full p-2 hover:bg-blue-600 transition-colors duration-300"
-            to="https://facebook.com"
-          >
-            <FaFacebookF width={20} height={20} />
-          </Link>{" "}
-          <Link
-            className="text-white border h-10 w-10 flex justify-center items-center border-white rounded-full p-2 hover:bg-blue-600 transition-colors duration-300"
-            to="https://facebook.com"
-          >
-            <FaLinkedinIn width={20} height={20} />
-          </Link>{" "}
-          <Link
-            className="text-white border h-10 w-10 flex justify-center items-center border-white rounded-full p-2 hover:bg-blue-600 transition-colors duration-300"
-            to="https://facebook.com"
-          >
-            <FaTwitter width={20} height={20} />
-          </Link>{" "}
-          <Link
-            className="text-white border h-10 w-10 flex justify-center items-center border-white rounded-full p-2 hover:bg-blue-600 transition-colors duration-300"
-            to="https://facebook.com"
-          >
-            <FaInstagram width={20} height={20} />
-          </Link>
+        {/* Social Icons */}
+        <div className="flex gap-4 mt-4 lg:mt-0">
+          {socialLinks.map(({ icon, url }, index) => (
+            <Link key={index} to={url} className="text-gray-400 hover:text-blue-500">
+              {icon}
+            </Link>
+          ))}
         </div>
       </div>
     </footer>
