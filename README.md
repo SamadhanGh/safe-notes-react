@@ -1,4 +1,4 @@
-# 🧠 Safe Notes Frontend
+#  Safe Notes Frontend
 
 This repository contains the **frontend** of the Safe Notes Application — a secure and feature-rich note-taking web app. Built using **React**, **Tailwind CSS**, and **Axios**, this frontend communicates seamlessly with the Java Spring Boot backend to offer a clean UI, strong authentication flows, and intuitive note management.
 
